@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qdo-wN-ddW">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--我-->
+        <scene sceneID="rWx-NC-p54">
+            <objects>
+                <tableViewController id="HSX-Re-9p4" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Z6M-5q-d6s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="TNL-gP-Yvl">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TNL-gP-Yvl" id="mTT-Nh-a5F">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="HSX-Re-9p4" id="G6w-6x-ujt"/>
+                            <outlet property="delegate" destination="HSX-Re-9p4" id="lZF-dE-a3S"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="我" id="bWu-19-lzs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BZa-IT-wyd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797" y="-141"/>
+        </scene>
+        <!--我-->
+        <scene sceneID="igG-u1-7lN">
+            <objects>
+                <navigationController id="qdo-wN-ddW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我" image="tab_find_nor~iphone" selectedImage="tab_find_pressed~iphone" id="XoE-4q-hIZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="205-qW-3C4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HSX-Re-9p4" kind="relationship" relationship="rootViewController" id="ZuA-Yy-B3S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLZ-Sv-8Re" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="411" y="-141"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab_find_nor~iphone" width="28" height="28"/>
+        <image name="tab_find_pressed~iphone" width="28" height="28"/>
+    </resources>
+</document>
