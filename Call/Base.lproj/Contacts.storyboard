@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PBi-sy-P0I">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts View Controller-->
+        <scene sceneID="3vb-kp-z0v">
+            <objects>
+                <tableViewController id="yaZ-8S-47A" customClass="ContactsViewController" customModule="Call" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jJk-BM-CfG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="03o-ES-tWC">
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="03o-ES-tWC" id="a2m-Md-eEe">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yaZ-8S-47A" id="OcB-HZ-hlt"/>
+                            <outlet property="delegate" destination="yaZ-8S-47A" id="bGk-nk-5AL"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Csm-yK-7T7">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="6ib-2d-LIP" customClass="SegmentedControl" customModule="Call" customModuleProvider="target">
+                            <rect key="frame" x="82" y="7" width="157" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="全部"/>
+                                <segment title="好友"/>
+                            </segments>
+                            <color key="tintColor" red="0.13333333333333333" green="0.74117647058823533" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" image="contacts_add_friends~iphone" id="SnI-Tj-f7X"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="6ib-2d-LIP" id="f9C-FJ-tWd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eao-i5-7vY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="-809"/>
+        </scene>
+        <!--通讯录-->
+        <scene sceneID="3qf-pf-sgi">
+            <objects>
+                <navigationController id="PBi-sy-P0I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="通讯录" image="tab_contacts_nor~iphone" selectedImage="tab_contacts_pressed~iphone" id="rTX-Fr-Uhc"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LX7-VN-XJM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="yaZ-8S-47A" kind="relationship" relationship="rootViewController" id="4ya-4F-id5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Sd-2k-3VB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="411" y="-809"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="contacts_add_friends~iphone" width="30" height="30"/>
+        <image name="tab_contacts_nor~iphone" width="28" height="28"/>
+        <image name="tab_contacts_pressed~iphone" width="28" height="28"/>
+    </resources>
+</document>

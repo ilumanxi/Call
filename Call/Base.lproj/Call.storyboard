@@ -5,14 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--来电-->
+        <!--Table View Controller-->
         <scene sceneID="MRf-qs-Vya">
             <objects>
                 <tableViewController id="ui3-o7-fLA" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="wsw-c5-Cf1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.33890396709999998" green="0.38956337559999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
                             <tableViewSection id="VUw-ob-hhO">
                                 <cells>
@@ -56,7 +56,17 @@
                             <outlet property="delegate" destination="ui3-o7-fLA" id="uDb-D1-asS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="来电" id="5ys-tZ-6YI"/>
+                    <navigationItem key="navigationItem" id="5ys-tZ-6YI">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BiF-2y-3Q9">
+                            <rect key="frame" x="139" y="11" width="42" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="title_lightalk_cn~iphone"/>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" image="groupchat_pressed~iphone" id="sqQ-HB-vRQ">
+                            <color key="tintColor" red="0.13333333333333333" green="0.74117647058823533" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfP-qr-HJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="wlO-Dy-t8c">
@@ -110,8 +120,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="groupchat_pressed~iphone" width="32" height="32"/>
         <image name="tabBarItem_Dot" width="16" height="16"/>
         <image name="tab_dial_nor~iphone" width="28" height="28"/>
         <image name="tab_dial_open~iphone" width="28" height="28"/>
+        <image name="title_lightalk_cn~iphone" width="42" height="22"/>
     </resources>
 </document>

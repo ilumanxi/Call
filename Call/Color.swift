@@ -24,8 +24,4 @@ extension UIColor {
 
 
 
-@IBDesignable
-extension UIView {
-    
-    
-}
+
