@@ -60,11 +60,11 @@
 		A9CF359D1CEC9D240086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contacts.storyboard; sourceTree = "<group>"; };
 		A9CF35A01CEC9D410086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
 		F386584B1CED642C00C5463A /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
-		F386584D1CED675700C5463A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		F3F6CB651CED6E8F0062FB63 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		F386584D1CED675700C5463A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../Color.swift; sourceTree = "<group>"; };
+		F3F6CB651CED6E8F0062FB63 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = View.swift; path = ../View.swift; sourceTree = "<group>"; };
 		F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationBar.xcassets; sourceTree = "<group>"; };
-		F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
-		F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegmentedControl.swift; path = ../SegmentedControl.swift; sourceTree = "<group>"; };
+		F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsViewController.swift; path = Call/Controllers/ContactsViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,15 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				F3F6CBE61CEDB3250062FB63 /* Controllers */,
+				A9FD2D981CEE104C00DF795A /* Views */,
+				A9FD2D991CEE106000DF795A /* Models */,
 				A9CF35661CEC9AB20086EF96 /* AppDelegate.swift */,
-				F3F6CB651CED6E8F0062FB63 /* View.swift */,
-				F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */,
-				F386584D1CED675700C5463A /* Color.swift */,
 				A9CF356C1CEC9AB30086EF96 /* Main.storyboard */,
-				A9CF359F1CEC9D410086EF96 /* Profile.storyboard */,
-				A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */,
-				A9CF35991CEC9CED0086EF96 /* Chat.storyboard */,
-				A9CF35961CEC9CB00086EF96 /* Call.storyboard */,
 				A9CF356F1CEC9AB40086EF96 /* Assets.xcassets */,
 				F386584B1CED642C00C5463A /* Tabbar.xcassets */,
 				F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */,
@@ -152,10 +147,63 @@
 			path = CallUITests;
 			sourceTree = "<group>";
 		};
-		F3F6CBE61CEDB3250062FB63 /* Controllers */ = {
+		A9FD2D981CEE104C00DF795A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F386584D1CED675700C5463A /* Color.swift */,
+				F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */,
+				F3F6CB651CED6E8F0062FB63 /* View.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A9FD2D991CEE106000DF795A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A9FD2D9A1CEE110500DF795A /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
 				F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */,
+				A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		A9FD2D9C1CEE117D00DF795A /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF359F1CEC9D410086EF96 /* Profile.storyboard */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A9FD2D9D1CEE11A100DF795A /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF35991CEC9CED0086EF96 /* Chat.storyboard */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A9FD2D9E1CEE11CA00DF795A /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF35961CEC9CB00086EF96 /* Call.storyboard */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		F3F6CBE61CEDB3250062FB63 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD2D9E1CEE11CA00DF795A /* Call */,
+				A9FD2D9D1CEE11A100DF795A /* Chat */,
+				A9FD2D9C1CEE117D00DF795A /* Profile */,
+				A9FD2D9A1CEE110500DF795A /* Contacts */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -362,6 +410,7 @@
 				A9CF35971CEC9CB00086EF96 /* Base */,
 			);
 			name = Call.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		A9CF35991CEC9CED0086EF96 /* Chat.storyboard */ = {
@@ -370,6 +419,7 @@
 				A9CF359A1CEC9CED0086EF96 /* Base */,
 			);
 			name = Chat.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */ = {
@@ -378,6 +428,7 @@
 				A9CF359D1CEC9D240086EF96 /* Base */,
 			);
 			name = Contacts.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		A9CF359F1CEC9D410086EF96 /* Profile.storyboard */ = {
@@ -386,6 +437,7 @@
 				A9CF35A01CEC9D410086EF96 /* Base */,
 			);
 			name = Profile.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
