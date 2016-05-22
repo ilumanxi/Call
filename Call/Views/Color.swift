@@ -22,6 +22,8 @@ extension UIColor {
     
 }
 
-
-
+class Color {
+    
+    static let themeColor = UIColor.rgb(34, green: 189, blue: 122)
+}
 

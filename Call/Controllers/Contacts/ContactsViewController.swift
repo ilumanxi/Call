@@ -11,7 +11,7 @@ import UIKit
 class ContactsViewController: UITableViewController {
     
     
-    @IBOutlet weak var segmentedControl: SegmentedControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,13 @@ class ContactsViewController: UITableViewController {
     
     
     private func configSegmentedControl() {
-        segmentedControl.setImage(UIImage(named: "contacts_tab_all_nor~iphone"), forSegmentAtIndex: 0)
-        segmentedControl.setSelectedImage(UIImage(named: "contacts_tab_all_selected~iphone"), forSegmentAtIndex: 0)
-        segmentedControl.setImage(UIImage(named: "contacts_tab_lightalk_nor~iphone"), forSegmentAtIndex: 1)
-        segmentedControl.setSelectedImage(UIImage(named: "contacts_tab_lightalk_selected~iphone"), forSegmentAtIndex: 1)
+        
+        segmentedControl.layer.borderColor = Color.themeColor.CGColor
+        segmentedControl.tintColor = Color.themeColor
+        segmentedControl.layer.borderWidth = 1
+        segmentedControl.layer.masksToBounds = true
+        segmentedControl.layer.cornerRadius = self.segmentedControl.bounds.height * 0.5
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,16 +13,21 @@
 		A9CF35731CEC9AB40086EF96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF35711CEC9AB40086EF96 /* LaunchScreen.storyboard */; };
 		A9CF357E1CEC9AB70086EF96 /* CallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF357D1CEC9AB70086EF96 /* CallTests.swift */; };
 		A9CF35891CEC9AB70086EF96 /* CallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF35881CEC9AB70086EF96 /* CallUITests.swift */; };
-		A9CF35981CEC9CB00086EF96 /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF35961CEC9CB00086EF96 /* Call.storyboard */; };
-		A9CF359B1CEC9CED0086EF96 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF35991CEC9CED0086EF96 /* Chat.storyboard */; };
-		A9CF359E1CEC9D240086EF96 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */; };
-		A9CF35A11CEC9D410086EF96 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF359F1CEC9D410086EF96 /* Profile.storyboard */; };
+		A9FD614B1CF1BB7E00D427BC /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61381CF1BB7E00D427BC /* Call.storyboard */; };
+		A9FD614C1CF1BB7E00D427BC /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61391CF1BB7E00D427BC /* CallViewController.swift */; };
+		A9FD614D1CF1BB7E00D427BC /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD613B1CF1BB7E00D427BC /* Chat.storyboard */; };
+		A9FD614E1CF1BB7E00D427BC /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD613D1CF1BB7E00D427BC /* Contacts.storyboard */; };
+		A9FD614F1CF1BB7E00D427BC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD613E1CF1BB7E00D427BC /* ContactsViewController.swift */; };
+		A9FD61501CF1BB7E00D427BC /* Me.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61401CF1BB7E00D427BC /* Me.storyboard */; };
+		A9FD61511CF1BB7E00D427BC /* CollectionViewGridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61431CF1BB7E00D427BC /* CollectionViewGridLayout.swift */; };
+		A9FD61521CF1BB7E00D427BC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61441CF1BB7E00D427BC /* Color.swift */; };
+		A9FD61531CF1BB7E00D427BC /* InputKeypadViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61461CF1BB7E00D427BC /* InputKeypadViewCell.swift */; };
+		A9FD61541CF1BB7E00D427BC /* InputKeypadViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61471CF1BB7E00D427BC /* InputKeypadViewCell.xib */; };
+		A9FD61551CF1BB7E00D427BC /* InputKeypadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61481CF1BB7E00D427BC /* InputKeypadView.swift */; };
+		A9FD61561CF1BB7E00D427BC /* InputKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61491CF1BB7E00D427BC /* InputKeypadView.xib */; };
+		A9FD61571CF1BB7E00D427BC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD614A1CF1BB7E00D427BC /* View.swift */; };
 		F386584C1CED642C00C5463A /* Tabbar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F386584B1CED642C00C5463A /* Tabbar.xcassets */; };
-		F386584E1CED675700C5463A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = F386584D1CED675700C5463A /* Color.swift */; };
-		F3F6CB661CED6E8F0062FB63 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F6CB651CED6E8F0062FB63 /* View.swift */; };
 		F3F6CB681CED7E4B0062FB63 /* NavigationBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */; };
-		F3F6CBE51CEDB2BF0062FB63 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */; };
-		F3F6CBE81CEDB3750062FB63 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,16 +60,21 @@
 		A9CF35841CEC9AB70086EF96 /* CallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CF35881CEC9AB70086EF96 /* CallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUITests.swift; sourceTree = "<group>"; };
 		A9CF358A1CEC9AB70086EF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9CF35971CEC9CB00086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Call.storyboard; sourceTree = "<group>"; };
-		A9CF359A1CEC9CED0086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
-		A9CF359D1CEC9D240086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contacts.storyboard; sourceTree = "<group>"; };
-		A9CF35A01CEC9D410086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		A9FD61381CF1BB7E00D427BC /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
+		A9FD61391CF1BB7E00D427BC /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		A9FD613B1CF1BB7E00D427BC /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		A9FD613D1CF1BB7E00D427BC /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
+		A9FD613E1CF1BB7E00D427BC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		A9FD61401CF1BB7E00D427BC /* Me.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Me.storyboard; sourceTree = "<group>"; };
+		A9FD61431CF1BB7E00D427BC /* CollectionViewGridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewGridLayout.swift; path = ../CollectionViewGridLayout.swift; sourceTree = "<group>"; };
+		A9FD61441CF1BB7E00D427BC /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A9FD61461CF1BB7E00D427BC /* InputKeypadViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputKeypadViewCell.swift; sourceTree = "<group>"; };
+		A9FD61471CF1BB7E00D427BC /* InputKeypadViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputKeypadViewCell.xib; sourceTree = "<group>"; };
+		A9FD61481CF1BB7E00D427BC /* InputKeypadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputKeypadView.swift; path = Call/Views/InputKeypadView.swift; sourceTree = SOURCE_ROOT; };
+		A9FD61491CF1BB7E00D427BC /* InputKeypadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputKeypadView.xib; path = Call/Views/InputKeypadView.xib; sourceTree = SOURCE_ROOT; };
+		A9FD614A1CF1BB7E00D427BC /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F386584B1CED642C00C5463A /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
-		F386584D1CED675700C5463A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Color.swift; path = ../Color.swift; sourceTree = "<group>"; };
-		F3F6CB651CED6E8F0062FB63 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = View.swift; path = ../View.swift; sourceTree = "<group>"; };
 		F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationBar.xcassets; sourceTree = "<group>"; };
-		F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegmentedControl.swift; path = ../SegmentedControl.swift; sourceTree = "<group>"; };
-		F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsViewController.swift; path = Call/Controllers/ContactsViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +125,9 @@
 		A9CF35651CEC9AB20086EF96 /* Call */ = {
 			isa = PBXGroup;
 			children = (
-				F3F6CBE61CEDB3250062FB63 /* Controllers */,
-				A9FD2D981CEE104C00DF795A /* Views */,
-				A9FD2D991CEE106000DF795A /* Models */,
+				A9FD61361CF1BB7E00D427BC /* Controllers */,
+				A9FD61411CF1BB7E00D427BC /* Models */,
+				A9FD61421CF1BB7E00D427BC /* Views */,
 				A9CF35661CEC9AB20086EF96 /* AppDelegate.swift */,
 				A9CF356C1CEC9AB30086EF96 /* Main.storyboard */,
 				A9CF356F1CEC9AB40086EF96 /* Assets.xcassets */,
@@ -147,65 +157,78 @@
 			path = CallUITests;
 			sourceTree = "<group>";
 		};
-		A9FD2D981CEE104C00DF795A /* Views */ = {
+		A9FD61361CF1BB7E00D427BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F386584D1CED675700C5463A /* Color.swift */,
-				F3F6CBE41CEDB2BF0062FB63 /* SegmentedControl.swift */,
-				F3F6CB651CED6E8F0062FB63 /* View.swift */,
+				A9FD61371CF1BB7E00D427BC /* Call */,
+				A9FD613A1CF1BB7E00D427BC /* Chat */,
+				A9FD613C1CF1BB7E00D427BC /* Contacts */,
+				A9FD613F1CF1BB7E00D427BC /* Me */,
 			);
-			path = Views;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		A9FD2D991CEE106000DF795A /* Models */ = {
+		A9FD61371CF1BB7E00D427BC /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD61381CF1BB7E00D427BC /* Call.storyboard */,
+				A9FD61391CF1BB7E00D427BC /* CallViewController.swift */,
+			);
+			path = Call;
+			sourceTree = "<group>";
+		};
+		A9FD613A1CF1BB7E00D427BC /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD613B1CF1BB7E00D427BC /* Chat.storyboard */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		A9FD613C1CF1BB7E00D427BC /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD613D1CF1BB7E00D427BC /* Contacts.storyboard */,
+				A9FD613E1CF1BB7E00D427BC /* ContactsViewController.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		A9FD613F1CF1BB7E00D427BC /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				A9FD61401CF1BB7E00D427BC /* Me.storyboard */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		A9FD61411CF1BB7E00D427BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A9FD2D9A1CEE110500DF795A /* Contacts */ = {
+		A9FD61421CF1BB7E00D427BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F3F6CBE71CEDB3750062FB63 /* ContactsViewController.swift */,
-				A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */,
+				A9FD61441CF1BB7E00D427BC /* Color.swift */,
+				A9FD61451CF1BB7E00D427BC /* InputKeypad */,
+				A9FD614A1CF1BB7E00D427BC /* View.swift */,
 			);
-			path = Contacts;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		A9FD2D9C1CEE117D00DF795A /* Profile */ = {
+		A9FD61451CF1BB7E00D427BC /* InputKeypad */ = {
 			isa = PBXGroup;
 			children = (
-				A9CF359F1CEC9D410086EF96 /* Profile.storyboard */,
+				A9FD61431CF1BB7E00D427BC /* CollectionViewGridLayout.swift */,
+				A9FD61481CF1BB7E00D427BC /* InputKeypadView.swift */,
+				A9FD61491CF1BB7E00D427BC /* InputKeypadView.xib */,
+				A9FD61461CF1BB7E00D427BC /* InputKeypadViewCell.swift */,
+				A9FD61471CF1BB7E00D427BC /* InputKeypadViewCell.xib */,
 			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		A9FD2D9D1CEE11A100DF795A /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				A9CF35991CEC9CED0086EF96 /* Chat.storyboard */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
-		A9FD2D9E1CEE11CA00DF795A /* Call */ = {
-			isa = PBXGroup;
-			children = (
-				A9CF35961CEC9CB00086EF96 /* Call.storyboard */,
-			);
-			path = Call;
-			sourceTree = "<group>";
-		};
-		F3F6CBE61CEDB3250062FB63 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A9FD2D9E1CEE11CA00DF795A /* Call */,
-				A9FD2D9D1CEE11A100DF795A /* Chat */,
-				A9FD2D9C1CEE117D00DF795A /* Profile */,
-				A9FD2D9A1CEE110500DF795A /* Contacts */,
-			);
-			path = Controllers;
+			path = InputKeypad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,15 +338,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FD614D1CF1BB7E00D427BC /* Chat.storyboard in Resources */,
+				A9FD614E1CF1BB7E00D427BC /* Contacts.storyboard in Resources */,
 				A9CF35731CEC9AB40086EF96 /* LaunchScreen.storyboard in Resources */,
-				A9CF359E1CEC9D240086EF96 /* Contacts.storyboard in Resources */,
 				A9CF35701CEC9AB40086EF96 /* Assets.xcassets in Resources */,
-				A9CF35981CEC9CB00086EF96 /* Call.storyboard in Resources */,
-				A9CF359B1CEC9CED0086EF96 /* Chat.storyboard in Resources */,
-				A9CF35A11CEC9D410086EF96 /* Profile.storyboard in Resources */,
 				A9CF356E1CEC9AB30086EF96 /* Main.storyboard in Resources */,
+				A9FD61501CF1BB7E00D427BC /* Me.storyboard in Resources */,
 				F386584C1CED642C00C5463A /* Tabbar.xcassets in Resources */,
+				A9FD614B1CF1BB7E00D427BC /* Call.storyboard in Resources */,
 				F3F6CB681CED7E4B0062FB63 /* NavigationBar.xcassets in Resources */,
+				A9FD61561CF1BB7E00D427BC /* InputKeypadView.xib in Resources */,
+				A9FD61541CF1BB7E00D427BC /* InputKeypadViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,11 +373,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FD61571CF1BB7E00D427BC /* View.swift in Sources */,
+				A9FD61511CF1BB7E00D427BC /* CollectionViewGridLayout.swift in Sources */,
+				A9FD614C1CF1BB7E00D427BC /* CallViewController.swift in Sources */,
 				A9CF35671CEC9AB20086EF96 /* AppDelegate.swift in Sources */,
-				F386584E1CED675700C5463A /* Color.swift in Sources */,
-				F3F6CBE51CEDB2BF0062FB63 /* SegmentedControl.swift in Sources */,
-				F3F6CB661CED6E8F0062FB63 /* View.swift in Sources */,
-				F3F6CBE81CEDB3750062FB63 /* ContactsViewController.swift in Sources */,
+				A9FD61531CF1BB7E00D427BC /* InputKeypadViewCell.swift in Sources */,
+				A9FD61521CF1BB7E00D427BC /* Color.swift in Sources */,
+				A9FD61551CF1BB7E00D427BC /* InputKeypadView.swift in Sources */,
+				A9FD614F1CF1BB7E00D427BC /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,42 +430,6 @@
 				A9CF35721CEC9AB40086EF96 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		A9CF35961CEC9CB00086EF96 /* Call.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9CF35971CEC9CB00086EF96 /* Base */,
-			);
-			name = Call.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		A9CF35991CEC9CED0086EF96 /* Chat.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9CF359A1CEC9CED0086EF96 /* Base */,
-			);
-			name = Chat.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		A9CF359C1CEC9D240086EF96 /* Contacts.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9CF359D1CEC9D240086EF96 /* Base */,
-			);
-			name = Contacts.storyboard;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		A9CF359F1CEC9D410086EF96 /* Profile.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A9CF35A01CEC9D410086EF96 /* Base */,
-			);
-			name = Profile.storyboard;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

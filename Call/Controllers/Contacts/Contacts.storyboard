@@ -30,7 +30,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="Csm-yK-7T7">
                         <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="6ib-2d-LIP" customClass="SegmentedControl" customModule="Call" customModuleProvider="target">
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="6ib-2d-LIP">
                             <rect key="frame" x="82" y="7" width="157" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>

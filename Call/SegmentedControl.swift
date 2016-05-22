@@ -26,9 +26,9 @@ class SegmentedControl: UISegmentedControl {
     
     private var lastSelectedSegmentIndex: Int?
     
-    private var segmentsImage = [UIImage?]()
+    private var segmentsImage = [Int:UIImage?]()
     
-    private var selectedSegmentsImage = [UIImage?]()
+    private var selectedSegmentsImage = [Int:UIImage?]()
 
     
     
@@ -47,9 +47,9 @@ class SegmentedControl: UISegmentedControl {
     
         switch state {
         case .Normal:
-            self.imageViews?[segment].image = self.segmentsImage[segment]
+            self.imageViews?[segment].image = self.segmentsImage[segment] ?? nil
         case .Selected:
-             self.imageViews?[segment].image = self.selectedSegmentsImage[segment]
+             self.imageViews?[segment].image = self.selectedSegmentsImage[segment] ?? nil
         }
         
     }
@@ -65,27 +65,27 @@ class SegmentedControl: UISegmentedControl {
         
     }
     
-    override func didMoveToSuperview() {
-        
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 1.5)), dispatch_get_main_queue()) {
-            
-            guard let segments =  self.imageViews?.enumerate() else {
-                return
-            }
-            
-            for (segment,_) in segments {
-                
-                if segment < self.segmentsImage.count {
-                    self.setImage(segment, state: .Normal)
-                }
-                
-            }
-            
-            self.changeDisplay()
-            
-        }
-    }
+//    override func didMoveToSuperview() {
+//        
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 1.5)), dispatch_get_main_queue()) {
+//            
+//            guard let segments =  self.imageViews?.enumerate() else {
+//                return
+//            }
+//            
+//            for (segment,_) in segments {
+//                
+//                if segment < self.segmentsImage.count {
+//                    self.setImage(segment, state: .Normal)
+//                }
+//                
+//            }
+//            
+//            self.changeDisplay()
+//            
+//        }
+//    }
     
     private func changeDisplay() {
         
@@ -100,22 +100,25 @@ class SegmentedControl: UISegmentedControl {
     }
     
     override func setImage(image: UIImage?, forSegmentAtIndex segment: Int){
-        
-        segmentsImage.insert(image, atIndex: segment)
+        segmentsImage[segment] = image
         changeDisplay()
         
     }
     
     
     func setSelectedImage(image: UIImage?, forSegmentAtIndex segment: Int){
-        
-        selectedSegmentsImage.insert(image, atIndex: segment)
+        selectedSegmentsImage[segment] = image
         changeDisplay()
         
     }
     
+    override func tintColorDidChange() {
+        layer.borderColor = tintColor.CGColor
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        layer.borderWidth = 1
         layer.cornerRadius = bounds.height * 0.5
         layer.masksToBounds = true
     }

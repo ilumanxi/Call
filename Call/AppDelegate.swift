@@ -33,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func themeRendering()  {
         
-        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.rgb(34, green: 189, blue: 122)], forState: .Selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:Color.themeColor], forState: .Selected)
+        UITabBar.appearance().tintColor = Color.themeColor
     }
     
 
