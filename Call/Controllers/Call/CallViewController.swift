@@ -78,12 +78,13 @@ class CallViewController: UITableViewController {
     override func viewWillDisappear(animated: Bool) {
         inputKeypadView.hidden = true
     }
-    override func viewDidAppear(animated: Bool) {
-        
-
-        
+    
+    
+    override  func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        if open {
+            open = false
+        }
     }
-
 }
 
 extension CallViewController: UITabBarControllerDelegate {
