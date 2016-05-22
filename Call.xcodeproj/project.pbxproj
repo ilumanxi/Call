@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9052FF01CF1F1D400C521D9 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9052FEF1CF1F1D400C521D9 /* SegmentedControl.swift */; };
 		A9CF35671CEC9AB20086EF96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF35661CEC9AB20086EF96 /* AppDelegate.swift */; };
 		A9CF356E1CEC9AB30086EF96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF356C1CEC9AB30086EF96 /* Main.storyboard */; };
 		A9CF35701CEC9AB40086EF96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9CF356F1CEC9AB40086EF96 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A9052FEF1CF1F1D400C521D9 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		A9CF35631CEC9AB10086EF96 /* Call.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Call.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CF35661CEC9AB20086EF96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A9CF356D1CEC9AB30086EF96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,9 +214,10 @@
 		A9FD61421CF1BB7E00D427BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9052FEF1CF1F1D400C521D9 /* SegmentedControl.swift */,
+				A9FD614A1CF1BB7E00D427BC /* View.swift */,
 				A9FD61441CF1BB7E00D427BC /* Color.swift */,
 				A9FD61451CF1BB7E00D427BC /* InputKeypad */,
-				A9FD614A1CF1BB7E00D427BC /* View.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9FD61571CF1BB7E00D427BC /* View.swift in Sources */,
+				A9052FF01CF1F1D400C521D9 /* SegmentedControl.swift in Sources */,
 				A9FD61511CF1BB7E00D427BC /* CollectionViewGridLayout.swift in Sources */,
 				A9FD614C1CF1BB7E00D427BC /* CallViewController.swift in Sources */,
 				A9CF35671CEC9AB20086EF96 /* AppDelegate.swift in Sources */,

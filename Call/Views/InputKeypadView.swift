@@ -39,7 +39,7 @@ class InputKeypadView: UIView {
 
 
 
-extension InputKeypadView: UICollectionViewDataSource {
+extension InputKeypadView: UICollectionViewDataSource,UICollectionViewDelegate {
     
     
     
@@ -65,11 +65,19 @@ extension InputKeypadView: UICollectionViewDataSource {
         return true
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 0.25)), dispatch_get_main_queue()) {
+            collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        }
+        
+    }
+    
     private func configCell(cell: InputKeypadViewCell,indexPath: NSIndexPath) {
         
         cell.backgroundColor = UIColor.rgb(249, green: 249, blue: 249)
         
-        func tiltlString(start: Int,_ end: Int) ->String {
+        func titleString(start: Int,_ end: Int) ->String {
             let string = "ABCDEFGHIJKLMNOPQTSTUVWXYZ"
             let startIndex = string.startIndex.advancedBy(start)
             let endIndex = string.startIndex.advancedBy(end)
@@ -81,25 +89,25 @@ extension InputKeypadView: UICollectionViewDataSource {
         case 1...5:
             let start = (indexPath.row - 1) * 3
             let end = (indexPath).row * 3
-            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: tiltlString(start, end))
+            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: titleString(start, end))
         case 6:
             let start = (indexPath.row - 1) * 3
             let end = (indexPath).row * 3  + 1
-            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: tiltlString(start, end))
+            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: titleString(start, end))
         case 7:
             let start = (indexPath.row - 1) * 3 + 1
             let end = (indexPath).row * 3 + 1
-            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: tiltlString(start, end))
+            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: titleString(start, end))
         case 8:
             let start = (indexPath.row - 1) * 3 + 1
             let end = (indexPath).row * 3 + 2
-            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: tiltlString(start, end))
+            cell.setTopTitle("\(indexPath.row + 1)", bottomTitle: titleString(start, end))
         case 9: // number 10
             cell.setTitle("黏贴")
         case 10:
             cell.setTopTitle("0", bottomTitle: "+")
         default:
-            cell.setImage(UIImage(named: "dial_keyboard_backspace_nor~iphone")!)
+            cell.setImage(UIImage(named: "dial_keyboard_backspace_nor~iphone")!,highlightedImage: UIImage(named: "dial_keyboard_backspace_pressed~iphone")!)
         }
     }
     

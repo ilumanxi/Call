@@ -45,8 +45,9 @@ class InputKeypadViewCell: UICollectionViewCell {
     }
     
     
-    func setImage(image: UIImage) {
+    func setImage(image: UIImage,highlightedImage: UIImage) {
         imageView.image = image
+        imageView.highlightedImage = highlightedImage
         setViews(imageView, hidden: false)
         setViews(topTitleLabel,bottomTitleLabel,titleLabel, hidden: true)
     }
@@ -59,7 +60,8 @@ class InputKeypadViewCell: UICollectionViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        selectedBackgroundView = UIView()
+        selectedBackgroundView?.backgroundColor = Color.themeColor.colorWithAlphaComponent(0.2)
     }
 
 }
