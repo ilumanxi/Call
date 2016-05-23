@@ -24,7 +24,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_icon" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-ae-BWc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_find_nor~iphone" translatesAutoresizingMaskIntoConstraints="NO" id="zfW-ae-BWc">
                                                     <rect key="frame" x="8" y="10" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="zfW-ae-BWc" secondAttribute="height" multiplier="1:1" id="54K-lI-U0G"/>
@@ -125,7 +125,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add_icon" width="50" height="50"/>
         <image name="tab_find_nor~iphone" width="28" height="28"/>
         <image name="tab_find_pressed~iphone" width="28" height="28"/>
     </resources>

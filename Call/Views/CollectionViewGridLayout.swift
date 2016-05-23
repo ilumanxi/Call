@@ -59,7 +59,9 @@ public class CollectionViewGridLayout: UICollectionViewLayout {
     }
     
     override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
-        return true
+       
+        return  collectionView?.bounds != newBounds
+
     }
     
     

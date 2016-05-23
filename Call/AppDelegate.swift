@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName:Color.themeColor], forState: .Selected)
         UITabBar.appearance().tintColor = Color.themeColor
+        UIBarButtonItem.appearance().tintColor = Color.themeColor
     }
     
 

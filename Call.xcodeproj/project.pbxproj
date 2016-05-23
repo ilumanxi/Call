@@ -14,6 +14,7 @@
 		A9CF35731CEC9AB40086EF96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9CF35711CEC9AB40086EF96 /* LaunchScreen.storyboard */; };
 		A9CF357E1CEC9AB70086EF96 /* CallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF357D1CEC9AB70086EF96 /* CallTests.swift */; };
 		A9CF35891CEC9AB70086EF96 /* CallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CF35881CEC9AB70086EF96 /* CallUITests.swift */; };
+		A9D773921CF32F990054F47B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D773911CF32F990054F47B /* Model.swift */; };
 		A9FD614B1CF1BB7E00D427BC /* Call.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61381CF1BB7E00D427BC /* Call.storyboard */; };
 		A9FD614C1CF1BB7E00D427BC /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD61391CF1BB7E00D427BC /* CallViewController.swift */; };
 		A9FD614D1CF1BB7E00D427BC /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9FD613B1CF1BB7E00D427BC /* Chat.storyboard */; };
@@ -63,6 +64,7 @@
 		A9CF35841CEC9AB70086EF96 /* CallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CF35881CEC9AB70086EF96 /* CallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallUITests.swift; sourceTree = "<group>"; };
 		A9CF358A1CEC9AB70086EF96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9D773911CF32F990054F47B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A9FD61381CF1BB7E00D427BC /* Call.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Call.storyboard; sourceTree = "<group>"; };
 		A9FD61391CF1BB7E00D427BC /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		A9FD613B1CF1BB7E00D427BC /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		A9FD61411CF1BB7E00D427BC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9D773911CF32F990054F47B /* Model.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				A9FD61531CF1BB7E00D427BC /* InputKeypadViewCell.swift in Sources */,
 				A9FD61521CF1BB7E00D427BC /* Color.swift in Sources */,
 				A9FD61551CF1BB7E00D427BC /* InputKeypadView.swift in Sources */,
+				A9D773921CF32F990054F47B /* Model.swift in Sources */,
 				A9FD614F1CF1BB7E00D427BC /* ContactsViewController.swift in Sources */,
 				F3E4F0391CF2D6420090875A /* IndicatorTitleView.swift in Sources */,
 			);
