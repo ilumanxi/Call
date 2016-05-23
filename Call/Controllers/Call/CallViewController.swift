@@ -11,7 +11,7 @@ import UIKit
 class CallViewController: UITableViewController {
     
     
-    private var open = true {
+    private var open = false {
         didSet{
             changeDisplayTabBarItem()
             inputKeypadAnimate(open)
@@ -24,19 +24,68 @@ class CallViewController: UITableViewController {
         [weak self] in
         let inputKeypadView = InputKeypadView.loadFromXIB()
         inputKeypadView.translatesAutoresizingMaskIntoConstraints = false
+        
+        inputKeypadView.completion = { [weak self] (inputKeypadView: InputKeypadView, string: String?, operationType: InputKeypadView.Operation) in
+        
+            func stringSplice(string1: String?,string2: String) ->String {
+                return (string1 == nil) ? string2 : (string1! + string2)
+            }
+            
+            switch operationType {
+            case .Input:
+               self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: string!)
+                self?.changeDisplayBarButtonItem(true)
+            case .Paste:
+                guard let text = UIPasteboard.generalPasteboard().string else {
+                    // attributedTitle attributedMessage NSMutableAttributedString
+                    let message = NSMutableAttributedString(string: "找不到号码", attributes: [NSForegroundColorAttributeName:UIColor.orangeColor()])
+                    
+                    let alertController = UIAlertController(title: nil, message: message.string, preferredStyle: .Alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (_) in
+                        
+                    }))
+                    alertController.view.tintColor = Color.themeColor
+                    alertController.setValue(message, forKey: "attributedMessage")
+                    self?.presentViewController(alertController, animated: true, completion: nil)
+                    return
+                }
+                self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: text)
+                self?.changeDisplayBarButtonItem(true)
+            case .Delete:
+               self?.indicatorTitleView.deleteBackward()
+               if let _ = self?.indicatorTitleView.title {
+                    self?.changeDisplayBarButtonItem(true)
+                
+               }else {
+                    self?.changeDisplayBarButtonItem(false)
+                }
+                
+            case .Dial:
+                break
+               
+            }
+      
+            
+            
+        }
+        
         return inputKeypadView
         
     }()
+    
+    
+    @IBOutlet weak var indicatorTitleView: IndicatorTitleView!
     
     
     private var inputKeypadViewBottomConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tabBarController?.delegate  = self
-
+       
         configInputKeypad()
+        
     }
     
     private func configInputKeypad () {
@@ -63,6 +112,32 @@ class CallViewController: UITableViewController {
         
     }
     
+    private func changeDisplayBarButtonItem(hasTitle: Bool) {
+        
+        if hasTitle {
+            
+            navigationItem.leftBarButtonItems = [createBarButtonItem(UIImage(named: "back~iphone"), action:  #selector(CallViewController.clearInfo))]
+            navigationItem.rightBarButtonItems = [createBarButtonItem(UIImage(named: "groupchat_popup_add~iphone"), action:  #selector(CallViewController.clearInfo))]
+            
+        }else {
+            
+            navigationItem.leftBarButtonItems = nil
+            navigationItem.rightBarButtonItems = [createBarButtonItem(UIImage(named: "groupchat~iphone"), action:  #selector(CallViewController.clearInfo))]
+        }
+    }
+    
+    
+    @objc private func clearInfo() {
+        changeDisplayBarButtonItem(false)
+        self.indicatorTitleView.title = nil
+        open = false
+    }
+    
+    
+    private func createBarButtonItem(image: UIImage?,action: Selector) ->UIBarButtonItem {
+        
+      return  UIBarButtonItem(image: image, style: .Done, target: self, action: action)
+    }
     
     override func viewWillAppear(animated: Bool) {
         inputKeypadView.hidden = false
@@ -81,9 +156,10 @@ class CallViewController: UITableViewController {
     
     
     override  func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        if open {
+//        if open {
             open = false
-        }
+//        }
+        indicatorTitleView.deleteBackward()
     }
 }
 

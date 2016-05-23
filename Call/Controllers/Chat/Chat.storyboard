@@ -104,7 +104,9 @@
                             <outlet property="delegate" destination="fVJ-ZM-Mvh" id="KGH-wn-ZOh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="聊天" id="aQv-kx-C7m"/>
+                    <navigationItem key="navigationItem" title="聊天" id="aQv-kx-C7m">
+                        <barButtonItem key="rightBarButtonItem" image="recent_start_chat~iphone" id="3ZR-Xy-XU8"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="ceb-xt-ktD" id="cyQ-On-F7c"/>
                     </connections>
@@ -143,6 +145,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="recent_start_chat~iphone" width="30" height="30"/>
         <image name="tab_recents_nor~iphone" width="28" height="28"/>
         <image name="tab_recents_pressed~iphone" width="28" height="28"/>
     </resources>

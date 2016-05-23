@@ -13,6 +13,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="a33-LE-tux" userLabel="Table Header View">
+                            <rect key="frame" x="0.0" y="144" width="320" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection id="VUw-ob-hhO">
                                 <cells>
@@ -24,21 +29,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nWc-c8-KOG">
-                                                    <rect key="frame" x="46" y="23" width="32" height="20"/>
+                                                    <rect key="frame" x="58" y="23" width="32" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p37-IM-T3x">
-                                                    <rect key="frame" x="46" y="43" width="41" height="14"/>
+                                                    <rect key="frame" x="58" y="43" width="41" height="14"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tabBarItem_Dot" id="Rli-d6-jfE">
-                                                    <rect key="frame" x="15" y="31" width="16" height="16"/>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="tab_contacts_pressed~iphone" id="Rli-d6-jfE">
+                                                    <rect key="frame" x="15" y="25" width="28" height="28"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
@@ -58,15 +63,21 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="5ys-tZ-6YI">
                         <nil key="title"/>
-                        <button key="titleView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BiF-2y-3Q9">
-                            <rect key="frame" x="139" y="11" width="42" height="22"/>
+                        <view key="titleView" contentMode="scaleToFill" id="wSk-ry-aKh" customClass="IndicatorTitleView" customModule="Call" customModuleProvider="target">
+                            <rect key="frame" x="43" y="6" width="212" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="title_lightalk_cn~iphone"/>
-                        </button>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="title_lightalk_cn~iphone"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" image="groupchat_pressed~iphone" id="sqQ-HB-vRQ">
                             <color key="tintColor" red="0.13333333333333333" green="0.74117647058823533" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="indicatorTitleView" destination="wSk-ry-aKh" id="qPR-wc-olK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfP-qr-HJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="wlO-Dy-t8c">
@@ -121,7 +132,7 @@
     </scenes>
     <resources>
         <image name="groupchat_pressed~iphone" width="32" height="32"/>
-        <image name="tabBarItem_Dot" width="16" height="16"/>
+        <image name="tab_contacts_pressed~iphone" width="28" height="28"/>
         <image name="tab_dial_nor~iphone" width="28" height="28"/>
         <image name="tab_dial_open~iphone" width="28" height="28"/>
         <image name="title_lightalk_cn~iphone" width="42" height="22"/>

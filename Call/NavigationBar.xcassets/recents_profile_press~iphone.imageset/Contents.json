@@ -1,16 +1,16 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
-      "filename" : "groupchat_pressed~iphone.png",
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
+      "filename" : "recents_profile_press~iphone@2x.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
+      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

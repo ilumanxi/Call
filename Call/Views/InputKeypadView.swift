@@ -11,7 +11,16 @@ import UIKit
 
 class InputKeypadView: UIView {
     
+    enum Operation {
+        case Input
+        case Paste
+        case Delete
+        case Dial
+    }
     
+    typealias Completion = (inputKeypadView: InputKeypadView, string: String?, operationType: Operation) -> Void
+    
+    var completion: Completion?
     
     private static let reuseIdentifier = String(InputKeypadViewCell)
     
@@ -25,6 +34,9 @@ class InputKeypadView: UIView {
     }
     
 
+    @IBAction func dial(sender: UIButton) {
+        completion?(inputKeypadView: self, string: nil, operationType: .Dial)
+    }
     
     override func awakeFromNib() {
         let reuseIdentifier = self.dynamicType.reuseIdentifier
@@ -56,6 +68,8 @@ extension InputKeypadView: UICollectionViewDataSource,UICollectionViewDelegate {
             return UICollectionViewCell()
         }
         
+        
+        
         configCell(cell, indexPath: indexPath)
         return cell
     }
@@ -67,9 +81,24 @@ extension InputKeypadView: UICollectionViewDataSource,UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 0.25)), dispatch_get_main_queue()) {
-            collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+        defer {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 0.25)), dispatch_get_main_queue()) {
+                collectionView.deselectItemAtIndexPath(indexPath, animated: true)
+            }
         }
+        
+        switch indexPath.row {
+        case 0...8:
+           fallthrough
+        case 10:
+            let cell = collectionView.cellForItemAtIndexPath(indexPath) as? InputKeypadViewCell
+            completion?(inputKeypadView: self, string: cell?.topTitleLabel.text, operationType: .Input)
+        case 9:
+            completion?(inputKeypadView: self, string: nil, operationType: .Paste)
+        default:
+            completion?(inputKeypadView: self, string: nil, operationType: .Delete)
+        }
+
         
     }
     

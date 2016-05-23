@@ -28,6 +28,7 @@
 		A9FD61561CF1BB7E00D427BC /* InputKeypadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FD61491CF1BB7E00D427BC /* InputKeypadView.xib */; };
 		A9FD61571CF1BB7E00D427BC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FD614A1CF1BB7E00D427BC /* View.swift */; };
 		F386584C1CED642C00C5463A /* Tabbar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F386584B1CED642C00C5463A /* Tabbar.xcassets */; };
+		F3E4F0391CF2D6420090875A /* IndicatorTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3E4F0381CF2D6420090875A /* IndicatorTitleView.swift */; };
 		F3F6CB681CED7E4B0062FB63 /* NavigationBar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		A9FD61491CF1BB7E00D427BC /* InputKeypadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InputKeypadView.xib; path = Call/Views/InputKeypadView.xib; sourceTree = SOURCE_ROOT; };
 		A9FD614A1CF1BB7E00D427BC /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F386584B1CED642C00C5463A /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
+		F3E4F0381CF2D6420090875A /* IndicatorTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicatorTitleView.swift; sourceTree = "<group>"; };
 		F3F6CB671CED7E4B0062FB63 /* NavigationBar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NavigationBar.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +216,7 @@
 		A9FD61421CF1BB7E00D427BC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F3E4F0381CF2D6420090875A /* IndicatorTitleView.swift */,
 				A9052FEF1CF1F1D400C521D9 /* SegmentedControl.swift */,
 				A9FD614A1CF1BB7E00D427BC /* View.swift */,
 				A9FD61441CF1BB7E00D427BC /* Color.swift */,
@@ -385,6 +388,7 @@
 				A9FD61521CF1BB7E00D427BC /* Color.swift in Sources */,
 				A9FD61551CF1BB7E00D427BC /* InputKeypadView.swift in Sources */,
 				A9FD614F1CF1BB7E00D427BC /* ContactsViewController.swift in Sources */,
+				F3E4F0391CF2D6420090875A /* IndicatorTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
