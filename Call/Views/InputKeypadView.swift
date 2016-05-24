@@ -27,6 +27,27 @@ class InputKeypadView: UIView {
     @IBOutlet weak var collectionViewGridLayout: CollectionViewGridLayout!
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var longPressGestureRecognizer: UILongPressGestureRecognizer!
+    
+    @IBAction func handleGesture(sender: UILongPressGestureRecognizer) {
+        switch sender.state {
+        case .Began:
+            let point = sender.locationInView(collectionView)
+            guard let indexPath = collectionView.indexPathForItemAtPoint(point) else {
+                return
+            }
+            if indexPath.item == 10 {
+                let cell = collectionView.cellForItemAtIndexPath(indexPath) as? InputKeypadViewCell
+                let string = cell?.bottomTitleLabel.text
+                completion?(inputKeypadView: self, string: string, operationType: .Input)
+            }
+        default:
+            break
+        }
+    }
+    
+    
     class func loadFromXIB() -> InputKeypadView {
         
        return  NSBundle.mainBundle().loadNibNamed(String(self), owner: nil, options: nil).first as! InputKeypadView
@@ -67,9 +88,6 @@ extension InputKeypadView: UICollectionViewDataSource,UICollectionViewDelegate {
             
             return UICollectionViewCell()
         }
-        
-        
-        
         configCell(cell, indexPath: indexPath)
         return cell
     }

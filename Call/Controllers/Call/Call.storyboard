@@ -48,7 +48,6 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="tintColor" red="0.65175283090000002" green="1" blue="0.47480293369999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="accessoryView" destination="wlO-Dy-t8c" id="WhH-gA-hbi"/>
                                         </connections>
@@ -81,25 +80,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TfP-qr-HJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="wlO-Dy-t8c">
-                    <rect key="frame" x="0.0" y="0.0" width="69" height="22"/>
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8sB-xy-gUY">
-                            <rect key="frame" x="0.0" y="0.0" width="69" height="22"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8sB-xy-gUY">
+                            <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGW-21-hm2">
-                                    <rect key="frame" x="0.0" y="0.0" width="42" height="22"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="昨天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGW-21-hm2">
+                                    <rect key="frame" x="0.0" y="1" width="34" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krX-Op-J93">
-                                    <rect key="frame" x="47" y="0.0" width="22" height="22"/>
+                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krX-Op-J93">
+                                    <rect key="frame" x="39" y="0.0" width="21" height="22"/>
+                                    <state key="normal" image="recents_profile~iphone"/>
                                 </button>
                             </subviews>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="8sB-xy-gUY" secondAttribute="bottom" id="25u-Sk-fyQ"/>
                         <constraint firstItem="8sB-xy-gUY" firstAttribute="leading" secondItem="wlO-Dy-t8c" secondAttribute="leading" id="FBT-CI-5a3"/>
@@ -132,6 +132,7 @@
     </scenes>
     <resources>
         <image name="groupchat_pressed~iphone" width="32" height="32"/>
+        <image name="recents_profile~iphone" width="25" height="25"/>
         <image name="tab_contacts_pressed~iphone" width="28" height="28"/>
         <image name="tab_dial_nor~iphone" width="28" height="28"/>
         <image name="tab_dial_open~iphone" width="28" height="28"/>

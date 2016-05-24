@@ -31,22 +31,30 @@ class CallViewController: UITableViewController {
                 return (string1 == nil) ? string2 : (string1! + string2)
             }
             
+            func show(title: String?,message: String) {
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (_) in
+                    
+                }))
+                alertController.view.tintColor = Color.themeColor
+                
+                // attributedTitle attributedMessage NSMutableAttributedString
+                let attributeMessage = NSMutableAttributedString(string: message, attributes: [NSForegroundColorAttributeName:UIColor.orangeColor()])
+                if let _ = title {
+                    let attributeTitle = NSMutableAttributedString(string: title!, attributes: [NSForegroundColorAttributeName:Color.themeColor])
+                    alertController.setValue(attributeTitle, forKey: "attributedTitle")
+                }
+                alertController.setValue(attributeMessage, forKey: "attributedMessage")
+                self?.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
             switch operationType {
             case .Input:
                self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: string!)
                 self?.changeDisplayBarButtonItem(true)
             case .Paste:
                 guard let text = UIPasteboard.generalPasteboard().string else {
-                    // attributedTitle attributedMessage NSMutableAttributedString
-                    let message = NSMutableAttributedString(string: "找不到号码", attributes: [NSForegroundColorAttributeName:UIColor.orangeColor()])
-                    
-                    let alertController = UIAlertController(title: nil, message: message.string, preferredStyle: .Alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (_) in
-                        
-                    }))
-                    alertController.view.tintColor = Color.themeColor
-                    alertController.setValue(message, forKey: "attributedMessage")
-                    self?.presentViewController(alertController, animated: true, completion: nil)
+                    show(nil, message: "找不到号码")
                     return
                 }
                 self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: text)
@@ -61,20 +69,40 @@ class CallViewController: UITableViewController {
                 }
                 
             case .Dial:
-                break
-               
+                guard let phone = self?.indicatorTitleView.title else {
+                    show("温馨提示", message: "请您输入号码")
+                    return
+                }
+                
+                guard let url = NSURL(string: "tel:"+phone) else {
+                     show("温馨提示", message: "请您检查号码")
+                    return
+                }
+                
+                if UIApplication.sharedApplication().canOpenURL(url) {
+                    self?.webView.loadRequest(NSURLRequest(URL: url))
+                } else {
+                    show("温馨提示", message: "请您使用iPhone拨打电话")
+                }
             }
-      
-            
-            
         }
-        
         return inputKeypadView
         
     }()
     
+    // call
+    lazy var webView: UIWebView =  {
+        [weak self] in
+        let webView = UIWebView()
+        self?.view.addSubview(webView)
+        return webView
+    }()
     
-    @IBOutlet weak var indicatorTitleView: IndicatorTitleView!
+    @IBOutlet weak var indicatorTitleView: IndicatorTitleView! {
+        didSet {
+            indicatorTitleView.autoresizingMask = [.FlexibleWidth,.FlexibleHeight]
+        }
+    }
     
     
     private var inputKeypadViewBottomConstraint: NSLayoutConstraint!
@@ -160,6 +188,12 @@ class CallViewController: UITableViewController {
             open = false
 //        }
         indicatorTitleView.deleteBackward()
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        return [UITableViewRowAction(style: .Default, title: "删除", handler: { (rowAction, indexPath) in
+            
+        })]
     }
 }
 

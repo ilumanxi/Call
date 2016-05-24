@@ -13,6 +13,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qwh-Op-IgE">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                    <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="yZc-Rq-p2p"/>
                     </constraints>
@@ -25,6 +26,7 @@
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="DVV-JR-47g"/>
                         <outlet property="delegate" destination="iN0-l3-epB" id="dXQ-SH-gOr"/>
+                        <outletCollection property="gestureRecognizers" destination="vqM-Id-Oxq" appends="YES" id="MwP-Zg-6BO"/>
                     </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fS-0U-KfC">
@@ -40,6 +42,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="Qwh-Op-IgE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0tv-2m-gRm"/>
                 <constraint firstItem="5fS-0U-KfC" firstAttribute="top" secondItem="Qwh-Op-IgE" secondAttribute="bottom" id="3oE-Pz-Jct"/>
@@ -53,8 +56,14 @@
             <connections>
                 <outlet property="collectionView" destination="Qwh-Op-IgE" id="MLg-ES-rtS"/>
                 <outlet property="collectionViewGridLayout" destination="1P4-AE-Abw" id="izF-qL-qpK"/>
+                <outlet property="longPressGestureRecognizer" destination="vqM-Id-Oxq" id="1YG-e5-Ivr"/>
             </connections>
         </view>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="vqM-Id-Oxq">
+            <connections>
+                <action selector="handleGesture:" destination="iN0-l3-epB" id="Dgz-dq-eEr"/>
+            </connections>
+        </pongPressGestureRecognizer>
     </objects>
     <resources>
         <image name="call_btn_pressed~iphone" width="32" height="32"/>
