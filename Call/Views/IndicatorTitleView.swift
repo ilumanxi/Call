@@ -70,16 +70,24 @@ class IndicatorTitleView: UIView {
         
         do {
             
-            let imageViewHorizontalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0)
-            let imageViewVerticalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0)
-            addConstraint(imageViewVerticalConstraint)
-            addConstraint(imageViewHorizontalConstraint)
+            imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+            imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
             
-            let views = ["titleLabel":titleLabel]
-            let titleLabelHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[titleLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-            let titleLabelVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[titleLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-            addConstraints(titleLabelHorizontalConstraints)
-            addConstraints(titleLabelVerticalConstraints)
+            titleLabel.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+            titleLabel.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+            titleLabel.leftAnchor.constraintGreaterThanOrEqualToAnchor(leftAnchor).active = true
+            titleLabel.rightAnchor.constraintLessThanOrEqualToAnchor(rightAnchor).active = true
+            
+//            let imageViewHorizontalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0)
+//            let imageViewVerticalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0)
+//            addConstraint(imageViewVerticalConstraint)
+//            addConstraint(imageViewHorizontalConstraint)
+            
+//            let views = ["titleLabel":titleLabel]
+//            let titleLabelHorizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[titleLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+//            let titleLabelVerticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[titleLabel]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+//            addConstraints(titleLabelHorizontalConstraints)
+//            addConstraints(titleLabelVerticalConstraints)
         }
         
     }

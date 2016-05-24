@@ -20,6 +20,8 @@ class CallViewController: UITableViewController {
     
     private var firstShow = true
     
+    private let inputKeypadViewHeight: CGFloat = 250.0
+    
     private lazy var inputKeypadView: InputKeypadView =  {
         [weak self] in
         let inputKeypadView = InputKeypadView.loadFromXIB()
@@ -120,18 +122,26 @@ class CallViewController: UITableViewController {
         let tabBar = tabBarController!.tabBar
         let tabBarControllerView = tabBarController!.view
         tabBarControllerView.insertSubview(inputKeypadView, belowSubview: tabBar)
-        let views = ["inputKeypadView":inputKeypadView,"tabBar":tabBar]
-        let inputKeypadViewWidthConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[inputKeypadView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
-        inputKeypadViewBottomConstraint = NSLayoutConstraint(item: inputKeypadView, attribute: .Bottom, relatedBy: .Equal, toItem: tabBar, attribute: .Top, multiplier: 1.0, constant: 0)
-        let inputKeypadViewHeightConstraint = NSLayoutConstraint(item: inputKeypadView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 250)
-        tabBarControllerView.addConstraints(inputKeypadViewWidthConstraint)
-        tabBarControllerView.addConstraint(inputKeypadViewBottomConstraint)
-        tabBarControllerView.addConstraint(inputKeypadViewHeightConstraint)
+        
+        
+        inputKeypadView.leftAnchor.constraintEqualToAnchor(tabBarControllerView.leftAnchor).active = true
+        inputKeypadView.rightAnchor.constraintEqualToAnchor(tabBarControllerView.rightAnchor).active = true
+        inputKeypadViewBottomConstraint = inputKeypadView.bottomAnchor.constraintEqualToAnchor(tabBar.topAnchor)
+        inputKeypadViewBottomConstraint.active = true
+        inputKeypadView.heightAnchor.constraintEqualToConstant(inputKeypadViewHeight).active = true
+        
+//        let views = ["inputKeypadView":inputKeypadView,"tabBar":tabBar]
+//        let inputKeypadViewWidthConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[inputKeypadView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+//        inputKeypadViewBottomConstraint = NSLayoutConstraint(item: inputKeypadView, attribute: .Bottom, relatedBy: .Equal, toItem: tabBar, attribute: .Top, multiplier: 1.0, constant: 0)
+//        let inputKeypadViewHeightConstraint = NSLayoutConstraint(item: inputKeypadView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 250)
+//        tabBarControllerView.addConstraints(inputKeypadViewWidthConstraint)
+//        tabBarControllerView.addConstraint(inputKeypadViewBottomConstraint)
+//        tabBarControllerView.addConstraint(inputKeypadViewHeightConstraint)
     }
     
     private func inputKeypadAnimate(up: Bool) {
         
-        inputKeypadViewBottomConstraint.constant = up ? 0 : 250
+        inputKeypadViewBottomConstraint.constant = up ? 0 : inputKeypadViewHeight
         
         UIView.animateWithDuration(0.25) { 
             
