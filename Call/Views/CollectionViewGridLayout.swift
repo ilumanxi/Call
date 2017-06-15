@@ -48,25 +48,32 @@ public class CollectionViewGridLayout: UICollectionViewLayout {
         }
     }
     
-    override public func prepareLayout() {
-        super.prepareLayout()
+    override public func prepare() {
+        super.prepare()
         itemWidth = (self.collectionView!.bounds.width - CGFloat(maxColumns - 1) * itemInterval) / CGFloat(maxColumns)
     }
     
-    override public func collectionViewContentSize() -> CGSize {
-       let boundHeight = CGFloat(maxRow) * itemHeight + CGFloat(lineIntervals) * itemInterval
-       return CGSize(width: self.collectionView!.bounds.width, height: boundHeight)
+    
+    public override var collectionViewContentSize: CGSize {
+        
+        get {
+            let boundHeight = CGFloat(maxRow) * itemHeight + CGFloat(lineIntervals) * itemInterval
+            return CGSize(width: self.collectionView!.bounds.width, height: boundHeight)
+        }
     }
     
-    override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    
+    
+    override public func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
        
         return  collectionView?.bounds != newBounds
 
     }
     
     
-    override public func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: indexPath)
+    override public func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        
+        let layoutAttributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
         let row = indexPath.item / maxColumns
         let col = indexPath.item % maxColumns
         let x =  CGFloat(col) * itemWidth + CGFloat(col) * itemInterval
@@ -75,10 +82,10 @@ public class CollectionViewGridLayout: UICollectionViewLayout {
         return layoutAttributes
     }
     
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override public func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var layoutAttributes = [UICollectionViewLayoutAttributes]()
         for item in 0..<maxCount{
-            layoutAttributes.append(self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: item, inSection: 0))!)
+            layoutAttributes.append(self.layoutAttributesForItem(at: IndexPath(item: item, section: 0) )!)
         }
         return layoutAttributes
     }

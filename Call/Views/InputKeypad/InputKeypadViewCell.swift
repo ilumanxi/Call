@@ -24,28 +24,28 @@ class InputKeypadViewCell: UICollectionViewCell {
     
     
     
-    func setTitle(title: String) {
+    func setTitle(_ title: String) {
         titleLabel.text = title
         setViews(titleLabel, hidden: false)
         setViews(topTitleLabel,bottomTitleLabel,imageView, hidden: true)
     }
     
-    func setTopTitle(topTitle: String,bottomTitle: String?) {
+    func setTopTitle(_ topTitle: String,bottomTitle: String?) {
         topTitleLabel.text = topTitle
         bottomTitleLabel.text = bottomTitle
         setViews(topTitleLabel,bottomTitleLabel, hidden: false)
         setViews(titleLabel,imageView, hidden: true)
         if bottomTitle == nil {
-            stackView.axis = .Horizontal
-            stackView.alignment = .Top
+            stackView.axis = .horizontal
+            stackView.alignment = .top
         }else {
-            stackView.axis = .Vertical
-            stackView.alignment = .Center
+            stackView.axis = .vertical
+            stackView.alignment = .center
         }
     }
     
     
-    func setImage(image: UIImage,highlightedImage: UIImage) {
+    func setImage(_ image: UIImage,highlightedImage: UIImage) {
         imageView.image = image
         imageView.highlightedImage = highlightedImage
         setViews(imageView, hidden: false)
@@ -53,15 +53,15 @@ class InputKeypadViewCell: UICollectionViewCell {
     }
     
     
-    func setViews(views: UIView...,hidden: Bool) {
+    func setViews(_ views: UIView...,hidden: Bool) {
         for view in views {
-            view.hidden = hidden
+            view.isHidden = hidden
         }
     }
     override func awakeFromNib() {
         super.awakeFromNib()
         selectedBackgroundView = UIView()
-        selectedBackgroundView?.backgroundColor = Color.themeColor.colorWithAlphaComponent(0.2)
+        selectedBackgroundView?.backgroundColor = Color.themeColor.withAlphaComponent(0.2)
     }
 
 }

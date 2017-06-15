@@ -28,7 +28,7 @@ class IndicatorTitleView: UIView {
         }
         set {
             titleLabel.text = newValue
-            imageView.hidden = !(newValue == nil)
+            imageView.isHidden = !(newValue == nil)
         }
     
     }
@@ -45,8 +45,8 @@ class IndicatorTitleView: UIView {
     lazy var titleLabel: UILabel =  {
         let  titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.lineBreakMode = .ByTruncatingHead
-        titleLabel.textAlignment = .Center
+        titleLabel.lineBreakMode = .byTruncatingHead
+        titleLabel.textAlignment = .center
         return titleLabel
     }()
     
@@ -56,11 +56,16 @@ class IndicatorTitleView: UIView {
             
             return
         }
-        text = text.substringToIndex(text.endIndex.predecessor())
+        
+        
+        
+        text = text.substring(to: text.index(before: text.endIndex))
         title = text.isEmpty ? nil : text
     }
     
-    override func willMoveToSuperview(newSuperview: UIView?) {
+    
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
         do {
             
             addSubview(imageView)
@@ -70,13 +75,13 @@ class IndicatorTitleView: UIView {
         
         do {
             
-            imageView.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
-            imageView.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+            imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             
-            titleLabel.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
-            titleLabel.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
-            titleLabel.leftAnchor.constraintGreaterThanOrEqualToAnchor(leftAnchor).active = true
-            titleLabel.rightAnchor.constraintLessThanOrEqualToAnchor(rightAnchor).active = true
+            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            titleLabel.leftAnchor.constraint(greaterThanOrEqualTo: leftAnchor).isActive = true
+            titleLabel.rightAnchor.constraint(lessThanOrEqualTo: rightAnchor).isActive = true
             
 //            let imageViewHorizontalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0)
 //            let imageViewVerticalConstraint = NSLayoutConstraint(item: imageView, attribute: .CenterY, relatedBy: .Equal, toItem: self, attribute: .CenterY, multiplier: 1.0, constant: 0)

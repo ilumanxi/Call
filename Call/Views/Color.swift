@@ -12,7 +12,7 @@ extension UIColor {
     
     class func rgb(red: Int,green: Int, blue: Int) ->UIColor {
         
-        func percentage(num: Int) ->CGFloat {
+        func percentage(_ num: Int) ->CGFloat {
             
             return CGFloat(num) / 255.0
         }
@@ -24,6 +24,6 @@ extension UIColor {
 
 class Color {
     
-    static let themeColor = UIColor.rgb(34, green: 189, blue: 122)
+    static let themeColor = UIColor.rgb(red:34, green: 189, blue: 122)
 }
 

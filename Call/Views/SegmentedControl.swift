@@ -18,7 +18,7 @@ class SegmentedControl: UISegmentedControl {
     
     var imageViews: [UIImageView]?{
         
-        return valueForKey("segments") as? [UIImageView]
+        return value(forKey: "segments") as? [UIImageView]
         
     }
     
@@ -32,9 +32,9 @@ class SegmentedControl: UISegmentedControl {
 
     
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        super.touchesBegan(touches, withEvent: event)
+        super.touchesBegan(touches, with: event)
         if selectedSegmentIndex >= 0 {
             
             lastSelectedSegmentIndex = selectedSegmentIndex
@@ -54,15 +54,12 @@ class SegmentedControl: UISegmentedControl {
         
     }
     
-    override func sendActionsForControlEvents(controlEvents: UIControlEvents) {
-        
-        super.sendActionsForControlEvents(controlEvents)
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 0.0001)), dispatch_get_main_queue()) {
-           self.changeDisplay()
-            
+    
+    override func sendActions(for controlEvents: UIControlEvents) {
+        super.sendActions(for: controlEvents)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.changeDisplay()
         }
-        
     }
     
 //    override func didMoveToSuperview() {
@@ -91,15 +88,15 @@ class SegmentedControl: UISegmentedControl {
         
         if let selectedSegmentIndex = lastSelectedSegmentIndex {
             
-            self.setImage(selectedSegmentIndex, state: .Normal)
+            self.setImage(segment: selectedSegmentIndex, state: .Normal)
         }
         
         if self.selectedSegmentIndex >= 0{
-              self.setImage(self.selectedSegmentIndex, state: .Selected)
+              self.setImage(segment: selectedSegmentIndex, state: .Selected)
         }
     }
     
-    override func setImage(image: UIImage?, forSegmentAtIndex segment: Int){
+    override func setImage(_ image: UIImage?, forSegmentAt segment: Int){
         segmentsImage[segment] = image
         changeDisplay()
         
@@ -113,7 +110,7 @@ class SegmentedControl: UISegmentedControl {
     }
     
     override func tintColorDidChange() {
-        layer.borderColor = tintColor.CGColor
+        layer.borderColor = tintColor.cgColor
     }
     
     override func layoutSubviews() {

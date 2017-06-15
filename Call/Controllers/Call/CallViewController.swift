@@ -34,34 +34,34 @@ class CallViewController: UITableViewController {
             }
             
             func show(title: String?,message: String) {
-                let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: { (_) in
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
                     
                 }))
                 alertController.view.tintColor = Color.themeColor
                 
                 // attributedTitle attributedMessage NSMutableAttributedString
-                let attributeMessage = NSMutableAttributedString(string: message, attributes: [NSForegroundColorAttributeName:UIColor.orangeColor()])
+                let attributeMessage = NSMutableAttributedString(string: message, attributes: [NSAttributedStringKey.foregroundColor:UIColor.orange])
                 if let _ = title {
-                    let attributeTitle = NSMutableAttributedString(string: title!, attributes: [NSForegroundColorAttributeName:Color.themeColor])
+                    let attributeTitle = NSMutableAttributedString(string: title!, attributes: [NSAttributedStringKey.foregroundColor:Color.themeColor])
                     alertController.setValue(attributeTitle, forKey: "attributedTitle")
                 }
                 alertController.setValue(attributeMessage, forKey: "attributedMessage")
-                self?.presentViewController(alertController, animated: true, completion: nil)
+                self?.present(alertController, animated: true, completion: nil)
             }
             
             switch operationType {
-            case .Input:
-               self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: string!)
+            case .input:
+                self?.indicatorTitleView.title = stringSplice(string1: self?.indicatorTitleView.title,string2: string!)
                 self?.changeDisplayBarButtonItem(true)
-            case .Paste:
-                guard let text = UIPasteboard.generalPasteboard().string else {
-                    show(nil, message: "找不到号码")
+            case .paste:
+                guard let text = UIPasteboard.general.string else {
+                    show(title: nil, message: "找不到号码")
                     return
                 }
-                self?.indicatorTitleView.title = stringSplice(self?.indicatorTitleView.title,string2: text)
+                self?.indicatorTitleView.title = stringSplice(string1: self?.indicatorTitleView.title,string2: text)
                 self?.changeDisplayBarButtonItem(true)
-            case .Delete:
+            case .delete:
                self?.indicatorTitleView.deleteBackward()
                if let _ = self?.indicatorTitleView.title {
                     self?.changeDisplayBarButtonItem(true)
@@ -70,21 +70,21 @@ class CallViewController: UITableViewController {
                     self?.changeDisplayBarButtonItem(false)
                 }
                 
-            case .Dial:
+            case .dial:
                 guard let phone = self?.indicatorTitleView.title else {
-                    show("温馨提示", message: "请您输入号码")
+                    show(title: "温馨提示", message: "请您输入号码")
                     return
                 }
                 
-                guard let url = NSURL(string: "tel:"+phone) else {
-                     show("温馨提示", message: "请您检查号码")
+                guard let url = URL(string: "tel:"+phone) else {
+                    show(title: "温馨提示", message: "请您检查号码")
                     return
                 }
                 
-                if UIApplication.sharedApplication().canOpenURL(url) {
-                    self?.webView.loadRequest(NSURLRequest(URL: url))
+                if UIApplication.shared.canOpenURL(url) {
+                    self?.webView.loadRequest(URLRequest(url: url))
                 } else {
-                    show("温馨提示", message: "请您使用iPhone拨打电话")
+                    show(title: "温馨提示", message: "请您使用iPhone拨打电话")
                 }
             }
         }
@@ -102,7 +102,7 @@ class CallViewController: UITableViewController {
     
     @IBOutlet weak var indicatorTitleView: IndicatorTitleView! {
         didSet {
-            indicatorTitleView.autoresizingMask = [.FlexibleWidth,.FlexibleHeight]
+            indicatorTitleView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         }
     }
     
@@ -121,14 +121,14 @@ class CallViewController: UITableViewController {
     private func configInputKeypad () {
         let tabBar = tabBarController!.tabBar
         let tabBarControllerView = tabBarController!.view
-        tabBarControllerView.insertSubview(inputKeypadView, belowSubview: tabBar)
+        tabBarControllerView?.insertSubview(inputKeypadView, belowSubview: tabBar)
         
         
-        inputKeypadView.leftAnchor.constraintEqualToAnchor(tabBarControllerView.leftAnchor).active = true
-        inputKeypadView.rightAnchor.constraintEqualToAnchor(tabBarControllerView.rightAnchor).active = true
-        inputKeypadViewBottomConstraint = inputKeypadView.bottomAnchor.constraintEqualToAnchor(tabBar.topAnchor)
-        inputKeypadViewBottomConstraint.active = true
-        inputKeypadView.heightAnchor.constraintEqualToConstant(inputKeypadViewHeight).active = true
+        inputKeypadView.leftAnchor.constraint(equalTo: (tabBarControllerView?.leftAnchor)!).isActive = true
+        inputKeypadView.rightAnchor.constraint(equalTo: (tabBarControllerView?.rightAnchor)!).isActive = true
+        inputKeypadViewBottomConstraint = inputKeypadView.bottomAnchor.constraint(equalTo: tabBar.topAnchor)
+        inputKeypadViewBottomConstraint.isActive = true
+        inputKeypadView.heightAnchor.constraint(equalToConstant: inputKeypadViewHeight).isActive = true
         
 //        let views = ["inputKeypadView":inputKeypadView,"tabBar":tabBar]
 //        let inputKeypadViewWidthConstraint = NSLayoutConstraint.constraintsWithVisualFormat("H:|[inputKeypadView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
@@ -139,28 +139,28 @@ class CallViewController: UITableViewController {
 //        tabBarControllerView.addConstraint(inputKeypadViewHeightConstraint)
     }
     
-    private func inputKeypadAnimate(up: Bool) {
+    private func inputKeypadAnimate(_ up: Bool) {
         
         inputKeypadViewBottomConstraint.constant = up ? 0 : inputKeypadViewHeight
         
-        UIView.animateWithDuration(0.25) { 
+        UIView.animate(withDuration: 0.25) {
             
             self.tabBarController?.view.layoutIfNeeded()
         }
         
     }
     
-    private func changeDisplayBarButtonItem(hasTitle: Bool) {
+    private func changeDisplayBarButtonItem(_ hasTitle: Bool) {
         
         if hasTitle {
             
-            navigationItem.leftBarButtonItems = [createBarButtonItem(UIImage(named: "back~iphone"), action:  #selector(CallViewController.clearInfo))]
-            navigationItem.rightBarButtonItems = [createBarButtonItem(UIImage(named: "groupchat_popup_add~iphone"), action:  #selector(CallViewController.clearInfo))]
+            navigationItem.leftBarButtonItems = [createBarButtonItem(image: UIImage(named: "back~iphone"), action:  #selector(CallViewController.clearInfo))]
+            navigationItem.rightBarButtonItems = [createBarButtonItem(image: UIImage(named: "groupchat_popup_add~iphone"), action:  #selector(CallViewController.clearInfo))]
             
         }else {
             
             navigationItem.leftBarButtonItems = nil
-            navigationItem.rightBarButtonItems = [createBarButtonItem(UIImage(named: "groupchat~iphone"), action:  #selector(CallViewController.clearInfo))]
+            navigationItem.rightBarButtonItems = [createBarButtonItem(image: UIImage(named: "groupchat~iphone"), action:  #selector(CallViewController.clearInfo))]
         }
     }
     
@@ -174,11 +174,11 @@ class CallViewController: UITableViewController {
     
     private func createBarButtonItem(image: UIImage?,action: Selector) ->UIBarButtonItem {
         
-      return  UIBarButtonItem(image: image, style: .Done, target: self, action: action)
+        return  UIBarButtonItem(image: image, style: .done, target: self, action: action)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        inputKeypadView.hidden = false
+    override func viewWillAppear(_ animated: Bool) {
+        inputKeypadView.isHidden = false
         if firstShow {
             firstShow = false
         } else {
@@ -188,20 +188,20 @@ class CallViewController: UITableViewController {
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        inputKeypadView.hidden = true
+    override func viewWillDisappear(_ animated: Bool) {
+        inputKeypadView.isHidden = true
     }
     
     
-    override  func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    override  func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 //        if open {
             open = false
 //        }
         indicatorTitleView.deleteBackward()
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        return [UITableViewRowAction(style: .Default, title: "删除", handler: { (rowAction, indexPath) in
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        return [UITableViewRowAction(style: .default, title: "删除", handler: { (rowAction, indexPath) in
             
         })]
     }
@@ -209,7 +209,7 @@ class CallViewController: UITableViewController {
 
 extension CallViewController: UITabBarControllerDelegate {
     
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         if viewController == navigationController {
             open = !open

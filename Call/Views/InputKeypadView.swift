@@ -12,17 +12,17 @@ import UIKit
 class InputKeypadView: UIView {
     
     enum Operation {
-        case Input
-        case Paste
-        case Delete
-        case Dial
+        case input
+        case paste
+        case delete
+        case dial
     }
     
-    typealias Completion = (inputKeypadView: InputKeypadView, string: String?, operationType: Operation) -> Void
+    typealias Completion = (_ inputKeypadView: InputKeypadView, _ string: String?, _ operationType: Operation) -> Void
     
     var completion: Completion?
     
-    private static let reuseIdentifier = String(InputKeypadViewCell)
+    private static let reuseIdentifier = String(describing: InputKeypadViewCell.self)
     
     @IBOutlet weak var collectionViewGridLayout: CollectionViewGridLayout!
 
@@ -30,17 +30,17 @@ class InputKeypadView: UIView {
     
     @IBOutlet weak var longPressGestureRecognizer: UILongPressGestureRecognizer!
     
-    @IBAction func handleGesture(sender: UILongPressGestureRecognizer) {
+    @IBAction func handleGesture(_ sender: UILongPressGestureRecognizer) {
         switch sender.state {
-        case .Began:
-            let point = sender.locationInView(collectionView)
-            guard let indexPath = collectionView.indexPathForItemAtPoint(point) else {
+        case .began:
+            let point = sender.location(in: collectionView)
+            guard let indexPath = collectionView.indexPathForItem(at: point) else {
                 return
             }
             if indexPath.item == 10 {
-                let cell = collectionView.cellForItemAtIndexPath(indexPath) as? InputKeypadViewCell
+                let cell = collectionView.cellForItem(at: indexPath) as? InputKeypadViewCell
                 let string = cell?.bottomTitleLabel.text
-                completion?(inputKeypadView: self, string: string, operationType: .Input)
+                completion?(self, string, .input)
             }
         default:
             break
@@ -50,21 +50,21 @@ class InputKeypadView: UIView {
     
     class func loadFromXIB() -> InputKeypadView {
         
-       return  NSBundle.mainBundle().loadNibNamed(String(self), owner: nil, options: nil).first as! InputKeypadView
+        return  Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)!.first as! InputKeypadView
         
     }
     
 
     @IBAction func dial(sender: UIButton) {
-        completion?(inputKeypadView: self, string: nil, operationType: .Dial)
+        completion?(self, nil, .dial)
     }
     
     override func awakeFromNib() {
-        let reuseIdentifier = self.dynamicType.reuseIdentifier
-        self.collectionView.registerNib(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        let reuseIdentifier = type(of: self).reuseIdentifier
+        self.collectionView.register(UINib(nibName: reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         collectionViewGridLayout.itemHeight = (200 - 0.5 * 5) / 4.0
         collectionView.contentInset = UIEdgeInsetsMake(0.5, 0, 0, 0)
-        self.collectionView.backgroundColor = UIColor.rgb(216, green: 216, blue: 216)
+        self.collectionView.backgroundColor = UIColor.rgb(red: 216, green: 216, blue: 216)
     }
     
     
@@ -76,59 +76,58 @@ extension InputKeypadView: UICollectionViewDataSource,UICollectionViewDelegate {
     
     
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return 12
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier(self.dynamicType.reuseIdentifier, forIndexPath: indexPath) as? InputKeypadViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: type(of: self).reuseIdentifier, for: indexPath) as? InputKeypadViewCell else {
             
             return UICollectionViewCell()
         }
-        configCell(cell, indexPath: indexPath)
+        configCell(cell: cell, indexPath: indexPath)
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         
         return true
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         defer {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64( CGFloat(NSEC_PER_SEC) * 0.25)), dispatch_get_main_queue()) {
-                collectionView.deselectItemAtIndexPath(indexPath, animated: true)
-            }
+            collectionView.deselectItem(at: indexPath, animated: true)
         }
         
         switch indexPath.row {
         case 0...8:
            fallthrough
         case 10:
-            let cell = collectionView.cellForItemAtIndexPath(indexPath) as? InputKeypadViewCell
-            completion?(inputKeypadView: self, string: cell?.topTitleLabel.text, operationType: .Input)
+            let cell = collectionView.cellForItem(at: indexPath as IndexPath) as? InputKeypadViewCell
+            completion?(self, cell?.topTitleLabel.text, .input)
         case 9:
-            completion?(inputKeypadView: self, string: nil, operationType: .Paste)
+            completion?(self, nil, .paste)
         default:
-            completion?(inputKeypadView: self, string: nil, operationType: .Delete)
+            completion?(self, nil, .delete)
         }
 
         
     }
     
-    private func configCell(cell: InputKeypadViewCell,indexPath: NSIndexPath) {
+    private func configCell(cell: InputKeypadViewCell,indexPath: IndexPath) {
         
-        cell.backgroundColor = UIColor.rgb(249, green: 249, blue: 249)
+        cell.backgroundColor = UIColor.rgb(red: 249, green: 249, blue: 249)
         
-        func titleString(start: Int,_ end: Int) ->String {
+        func titleString(_ start: Int, _ end: Int) ->String {
             let string = "ABCDEFGHIJKLMNOPQTSTUVWXYZ"
-            let startIndex = string.startIndex.advancedBy(start)
-            let endIndex = string.startIndex.advancedBy(end)
-            return string.substringWithRange(startIndex..<endIndex)
+            
+            let startIndex = string.index(string.startIndex, offsetBy: start)
+            let endIndex = string.index(string.startIndex, offsetBy: end)
+            return string.substring(with: startIndex..<endIndex)
         }
         switch indexPath.row {
         case 0: // number 1
